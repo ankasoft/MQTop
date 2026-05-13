@@ -221,7 +221,7 @@ If terminals register an LWT with `status: "offline"`, the broker publishes it a
 ```json
 {
   "requestId": "uuid-v4",
-  "type": "TSM_IR_GetAdisyon",
+  "type": "GetOrder",
   "timestamp": "2026-05-13T14:32:11Z",
   "payload": {}
 }
@@ -232,7 +232,7 @@ If terminals register an LWT with `status: "offline"`, the broker publishes it a
 ```json
 {
   "requestId": "uuid-v4",
-  "type": "TSM_IR_GetAdisyon",
+  "type": "GetOrder",
   "success": true,
   "data": {}
 }
@@ -281,43 +281,6 @@ If more than 3 alerts are active at once, the alerts panel rotates through them.
 
 ```
 [placeholder for screenshot]
-```
-
----
-
-## Project layout
-
-```
-MQTop/
-├── Program.cs                          # Generic Host bootstrap
-├── appsettings.json
-├── Dockerfile                          # Multi-stage build
-├── src/
-│   ├── Configuration/
-│   │   └── AppOptions.cs               # Mqtt / Dashboard / Alerts options
-│   ├── Models/
-│   │   ├── BrokerStats.cs
-│   │   ├── VendorStats.cs
-│   │   ├── TerminalInfo.cs
-│   │   ├── Alert.cs
-│   │   └── ConnectionLogEntry.cs
-│   ├── Services/
-│   │   ├── DashboardState.cs           # The single shared, thread-safe state
-│   │   └── MqttMonitorService.cs       # BackgroundService — MQTT collector
-│   └── Tui/
-│       ├── TuiDashboard.cs             # BackgroundService — Live render + input
-│       ├── Panels/
-│       │   ├── HeaderPanel.cs
-│       │   ├── BrokerPanel.cs
-│       │   ├── LoadPanel.cs
-│       │   ├── VendorPanel.cs
-│       │   ├── TerminalPanel.cs
-│       │   ├── AlertsPanel.cs
-│       │   ├── ConnectionLogPanel.cs
-│       │   └── FooterPanel.cs
-│       └── Helpers/
-│           ├── ColorHelper.cs          # Threshold-based colour selection
-│           └── FormatHelper.cs         # Duration (d/h/m/s), bytes, %
 ```
 
 ---
