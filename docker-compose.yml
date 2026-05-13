@@ -1,0 +1,32 @@
+services:
+  mqtop:
+    image: mqtop/mqtop:latest
+    container_name: mqtop
+    restart: unless-stopped
+    environment:
+      - Mqtt__BrokerUrl=mqtt://mosquitto:1883
+      - Mqtt__Username=
+      - Mqtt__Password=
+      - Dashboard__Vendors__0=worldline
+      - Dashboard__Vendors__1=token
+      - Dashboard__Vendors__2=inpos
+      - Dashboard__Vendors__3=hugin
+    depends_on:
+      - mosquitto
+    stdin_open: true
+    tty: true          # critical for TUI
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:ro
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:

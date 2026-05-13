@@ -1,0 +1,10 @@
+**/bin
+**/obj
+**/.git
+**/.vs
+**/.idea
+**/.vscode
+**/publish
+**/*.user
+**/appsettings.Development.json
+**/appsettings.Local.json

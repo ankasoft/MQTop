@@ -1,0 +1,12 @@
+bin/
+obj/
+publish/
+*.user
+*.suo
+.vs/
+.idea/
+.vscode/
+*.swp
+*.swo
+appsettings.Development.json
+appsettings.Local.json
