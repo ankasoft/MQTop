@@ -9,7 +9,29 @@
     <AssemblyName>mqtop</AssemblyName>
     <LangVersion>latest</LangVersion>
     <InvariantGlobalization>false</InvariantGlobalization>
+
+    <!-- NuGet Tool -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>mqtop</ToolCommandName>
+    <PackageId>mqtop</PackageId>
+    <Version>0.1.0-alpha</Version>
+    <Authors>vemiroglu</Authors>
+    <Company>Ankasoft</Company>
+    <Description>Real-time TUI dashboard for Mosquitto MQTT broker and connected terminal monitoring.</Description>
+    <PackageTags>mqtt;mosquitto;tui;monitoring;terminal;iot;pos</PackageTags>
+    <PackageProjectUrl>https://github.com/ankasoft/MQTop</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ankasoft/MQTop</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="icon.png" Pack="true" PackagePath="\" Condition="Exists('icon.png')" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MQTTnet" Version="4.3.6.1152" />
